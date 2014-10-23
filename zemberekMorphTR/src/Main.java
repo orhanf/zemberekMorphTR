@@ -73,28 +73,33 @@ public class Main {
 		
 		int i=0;
 		String arg;
-		
-		while (i < args.length && args[i].startsWith("-")) {
-			arg = args[i++];
-			if (arg.equals("-o")) {
-				if (i < args.length)
-					OUTPUT_FILENAME = args[i++];
-				else
-					System.err.println("-o requires a filename");
-			}else if (arg.equals("-i")) {
-				if (i < args.length)
-					INPUT_FILENAME = args[i++];
-				else
-					System.err.println("-i requires a filename");
-			}else if (arg.equals("-d")) {
-				IS_DISAMBIGUATE = true;
-			}else if (arg.equals("-s")) {
-				IS_SHORT_WORDS = true;
-			}else if (arg.equals("-h")){
-				usage();
-				System.exit(-1);
+		if(args.length!=0){
+			while (i < args.length && args[i].startsWith("-")) {
+				arg = args[i++];
+				if (arg.equals("-o")) {
+					if (i < args.length)
+						OUTPUT_FILENAME = args[i++];
+					else
+						System.err.println("-o requires a filename");
+				}else if (arg.equals("-i")) {
+					if (i < args.length)
+						INPUT_FILENAME = args[i++];
+					else
+						System.err.println("-i requires a filename");
+				}else if (arg.equals("-d")) {
+					IS_DISAMBIGUATE = true;
+				}else if (arg.equals("-s")) {
+					IS_SHORT_WORDS = true;
+				}else if (arg.equals("-h")){
+					usage();
+					System.exit(-1);
+				}
 			}
+		}else{
+			usage();
+			System.exit(-1);
 		}
+		
 	}
 
 	private static void usage(){
