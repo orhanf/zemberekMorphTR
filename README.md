@@ -1,7 +1,5 @@
 zemberekMorphTR
 ===============
-zemberekMorphTR
-===============
 
 This repo provides a way for morhological segmentation of Turkish corpora by using Zemberek.
 
